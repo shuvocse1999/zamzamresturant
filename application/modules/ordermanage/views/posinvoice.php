@@ -622,8 +622,8 @@ body
                   </div>
                 </div>
                 <div class="text-center">
-                    <h3 class="mt-10"><?php echo display('thanks_you')?></h3>
-                    <p class="b_top"><?php echo display('powerbybdtask')?></p>
+                    <p class="b_top" style="font-size: 13px; line-height: 20px; color: #585858;">Develop By Shuvo. www.softwarefarmbd.com<br>
+                        <span>Phone: 01788283580</span></p>
                 </div>
             </div>
         </div>
