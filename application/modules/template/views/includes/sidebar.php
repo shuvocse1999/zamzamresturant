@@ -338,7 +338,7 @@
         **********ENDS OF CUSTOM MODULES*********
         ************************************* -->
 
-        <li class="header">Default </li>
+   <!--      <li class="header">Default </li> -->
 
         <?php if($this->session->userdata('isAdmin')) { ?>
         <li class="treeview <?php echo (($this->uri->segment(2)=="user")?"active":null) ?>">
@@ -404,7 +404,7 @@
         </li>
         <?php } ?>
         <!-- ends of admin area -->
-
+<!-- 
         <li class="treeview <?php echo (($this->uri->segment(2)=="message")?"active":null) ?>">
             <a href="#">
                 <i class="ti-comments"></i><span><?php echo display('message')?></span>
@@ -417,6 +417,6 @@
                 <li><a href="<?php echo base_url('dashboard/message/index') ?>"><?php echo display('inbox')?></a></li>
                 <li><a href="<?php echo base_url('dashboard/message/sent') ?>"><?php echo display('sent')?></a></li> 
             </ul>
-        </li>       
+        </li>   -->     
     </ul> 
 </div> <!-- /.sidebar -->
