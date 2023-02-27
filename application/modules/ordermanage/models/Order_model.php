@@ -116,6 +116,8 @@ class Order_model extends CI_Model {
 	public function insert_customer($data = array()){
 		return $this->db->insert('customer_info', $data);
 		}
+
+		
 	public function create_coa($data = array())
     {
         $this->db->insert('acc_coa',$data);

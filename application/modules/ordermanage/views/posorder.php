@@ -825,294 +825,296 @@ $ptdiscount=0;?>
                         <div class="row">
 
                           <div class="col-md-4 form-group">
+
                             <label for="store_id"><?php echo display('waiter');?> <span class="color-red">*</span>&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <?php $waiterkitchen=$this->session->userdata('id');
-                            echo form_dropdown('waiter',$waiterlist,(!empty($waiterkitchen)?$waiterkitchen:null),'class="form-control" id="waiter" required') ?>
+                            echo form_dropdown('waiter',$waiterlist,(!empty($waiterkitchen)?$waiterkitchen:null),'class="form-control" id="waiter" required') ?><br><button type="button" class="btn btn-primary ml-l" aria-hidden="true" data-toggle="modal" data-target="#client-info2"><i class="ti-plus"></i></button>
+
                           </div>
                           <?php 
                           if($possetting->tablemaping==1){
                             ?>
                             <div class="col-md-2 form-group pl-0" id="tblsecp">
-                           <!--    <label for="store_id" class="wpr_100 person"> <span class="color-red">&nbsp;&nbsp;</span></label> -->
-                              <label>Person:</label>
-                              <input name="" type="number" class="form-control"  id="table_person" min="1" value="1" required="">
-                              <input type="hidden" id="table_member" name="table_member" class="form-control" value="0" />
-                            </div>
-                          <?php } ?>
-                          <div class="col-md-3 form-group" id="tblsec"> 
+                             <!--    <label for="store_id" class="wpr_100 person"> <span class="color-red">&nbsp;&nbsp;</span></label> -->
+                             <label>Person:</label>
+                             <input name="" type="number" class="form-control"  id="table_person" min="1" value="1" required="">
+                             <input type="hidden" id="table_member" name="table_member" class="form-control" value="0" />
+                           </div>
+                         <?php } ?>
+                         <div class="col-md-3 form-group" id="tblsec"> 
 
-                            <label for="store_id"><?php echo display('table');?> <span class="color-red">*</span></label>
-                            <?php echo form_dropdown('tableid',$tablelist,(!empty($tablelist->tableid)?$tablelist->tableid:null),'class="postform resizeselect form-control" id="tableid" required onchange="checktable()"')?>
-                            <input type="hidden" id="table_member_multi" name="table_member_multi" class="form-control" value="0" />
-                            <input type="hidden" id="table_member_multi_person" name="table_member_multi_person" class="form-control" value="0" />
-
-                          </div>
-                          <?php 
-                          ?>
-                          <div class="col-md-3 form-group" id="cookingtime">
-                            <label for="Cooked Time"><?php echo display('cookedtime');?></label>
-                            <input name="cookedtime" type="text" class="form-control timepicker3" id="cookedtime" placeholder="00:00:00" autocomplete="off" />
-                          </div>
+                          <label for="store_id"><?php echo display('table');?> <span class="color-red">*</span></label>
+                          <?php echo form_dropdown('tableid',$tablelist,(!empty($tablelist->tableid)?$tablelist->tableid:null),'class="postform resizeselect form-control" id="tableid" required onchange="checktable()"')?>
+                          <input type="hidden" id="table_member_multi" name="table_member_multi" class="form-control" value="0" />
+                          <input type="hidden" id="table_member_multi_person" name="table_member_multi_person" class="form-control" value="0" />
 
                         </div>
+                        <?php 
+                        ?>
+                        <div class="col-md-3 form-group" id="cookingtime">
+                          <label for="Cooked Time"><?php echo display('cookedtime');?></label>
+                          <input name="cookedtime" type="text" class="form-control timepicker3" id="cookedtime" placeholder="00:00:00" autocomplete="off" />
+                        </div>
+
                       </div>
-                      <div id="thirdparty" style="display: none;">
+                    </div>
+                    <div id="thirdparty" style="display: none;">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="store_id"><?php echo display('del_company');?> <span class="color-red">*</span>&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                          <?php echo form_dropdown('delivercom',$thirdpartylist,(!empty($thirdpartylist->companyId)?$thirdpartylist->companyId:null),'class="form-control wpr_95" id="delivercom" required disabled="disabled"') ?> </div>
+                        </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="store_id"><?php echo display('del_company');?> <span class="color-red">*</span>&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <?php echo form_dropdown('delivercom',$thirdpartylist,(!empty($thirdpartylist->companyId)?$thirdpartylist->companyId:null),'class="form-control wpr_95" id="delivercom" required disabled="disabled"') ?> </div>
+                            <label for="third_id"><?php echo display('thirdparty_orderid');?>&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <input  name="thirdinvoiceid" type="text" class="form-control" id="thirdinvoiceid">
                           </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="third_id"><?php echo display('thirdparty_orderid');?>&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                              <input  name="thirdinvoiceid" type="text" class="form-control" id="thirdinvoiceid">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <input class="form-control" type="hidden" id="order_date" name="order_date" required value="<?php echo date('d-m-Y')?>" />
-                          <input class="form-control" type="hidden" id="bill_info" name="bill_info" required value="1"  />
-                          <input type="hidden" id="card_type" name="card_type" value="4" />
-                          <input type="hidden" id="isonline" name="isonline" value="0" />
-                          <input type="hidden" id="assigncard_terminal" name="assigncard_terminal" value="" />
-                          <input type="hidden" id="assignbank" name="assignbank" value="" />
-                          <input type="hidden" id="assignlastdigit" name="assignlastdigit" value="" />
-                          <input type="hidden" id="product_value" name="">
                         </div>
                       </div>
-                      <div class="productlist">
-                        <div class="product-list pdlist">
-                          <div class="table-responsive" id="addfoodlist">
-                            <?php $grtotal=0;
-                            $totalitem=0;
-                            $calvat=0;
-                            $discount=0;
-                            $itemtotal=0;
-                            $pdiscount=0;
-                            $multiplletax = array();
-                            $this->load->model('ordermanage/order_model', 'ordermodel');
-                            if($cart = $this->cart->contents()){?>
-                              <table class="table table-bordered wpr_100" border="1" id="addinvoice">
-                                <thead>
-                                  <tr>
-                                    <th><?php echo display('item')?></th>
-                                    <th><?php echo display('varient_name')?></th>
-                                    <th><?php echo display('price');?></th>
-                                    <th><?php echo display('quantity');?></th>
-                                    <th><?php echo display('total');?></th>
-                                    <th><?php echo display('action');?></th>
-                                  </tr>
-                                </thead>
-                                <tbody class="itemNumber">
-                                  <?php $i=0; 
-                                  $totalamount=0;
-                                  $subtotal=0;
-                                  $ptdiscount=0;
-                                  $pvat=0;																		  
-                                  foreach ($cart as $item){
-                                   $iteminfo=$this->ordermodel->getiteminfo($item['pid']);
-                                   $itemprice= $item['price']*$item['qty'];
-                                   $mypdiscountprice =0;
-                                   if(!empty($taxinfos)){
-                                     $tx=0;
-                                     if($iteminfo->OffersRate>0){
-                                      $mypdiscountprice=$iteminfo->OffersRate*$itemprice/100;
-                                    }
-                                    $itemvalprice =  ($itemprice-$mypdiscountprice);
-                                    foreach ($taxinfos as $taxinfo) 
-                                    {
-                                     $fildname='tax'.$tx;
-                                     if(!empty($iteminfo->$fildname)){
-                                       $vatcalc=$itemvalprice*$iteminfo->$fildname/100;
-                                       $multiplletax[$fildname] = $multiplletax[$fildname]+$vatcalc;
-                                     }
-                                     else{
-                                      $vatcalc=$itemvalprice*$taxinfo['default_value']/100; 
-                                      $multiplletax[$fildname] = $multiplletax[$fildname]+$vatcalc; 
-
-                                    }
-
-                                    $pvat=$pvat+$vatcalc;
-                                    $vatcalc =0; 
-                                    $tx++;  
+                      <div class="form-group">
+                        <input class="form-control" type="hidden" id="order_date" name="order_date" required value="<?php echo date('d-m-Y')?>" />
+                        <input class="form-control" type="hidden" id="bill_info" name="bill_info" required value="1"  />
+                        <input type="hidden" id="card_type" name="card_type" value="4" />
+                        <input type="hidden" id="isonline" name="isonline" value="0" />
+                        <input type="hidden" id="assigncard_terminal" name="assigncard_terminal" value="" />
+                        <input type="hidden" id="assignbank" name="assignbank" value="" />
+                        <input type="hidden" id="assignlastdigit" name="assignlastdigit" value="" />
+                        <input type="hidden" id="product_value" name="">
+                      </div>
+                    </div>
+                    <div class="productlist">
+                      <div class="product-list pdlist">
+                        <div class="table-responsive" id="addfoodlist">
+                          <?php $grtotal=0;
+                          $totalitem=0;
+                          $calvat=0;
+                          $discount=0;
+                          $itemtotal=0;
+                          $pdiscount=0;
+                          $multiplletax = array();
+                          $this->load->model('ordermanage/order_model', 'ordermodel');
+                          if($cart = $this->cart->contents()){?>
+                            <table class="table table-bordered wpr_100" border="1" id="addinvoice">
+                              <thead>
+                                <tr>
+                                  <th><?php echo display('item')?></th>
+                                  <th><?php echo display('varient_name')?></th>
+                                  <th><?php echo display('price');?></th>
+                                  <th><?php echo display('quantity');?></th>
+                                  <th><?php echo display('total');?></th>
+                                  <th><?php echo display('action');?></th>
+                                </tr>
+                              </thead>
+                              <tbody class="itemNumber">
+                                <?php $i=0; 
+                                $totalamount=0;
+                                $subtotal=0;
+                                $ptdiscount=0;
+                                $pvat=0;																		  
+                                foreach ($cart as $item){
+                                 $iteminfo=$this->ordermodel->getiteminfo($item['pid']);
+                                 $itemprice= $item['price']*$item['qty'];
+                                 $mypdiscountprice =0;
+                                 if(!empty($taxinfos)){
+                                   $tx=0;
+                                   if($iteminfo->OffersRate>0){
+                                    $mypdiscountprice=$iteminfo->OffersRate*$itemprice/100;
                                   }
-                                }
-                                else{
-                                 $vatcalc=$itemprice*$iteminfo->productvat/100;
-                                 $pvat=$pvat+$vatcalc;
-                               }
+                                  $itemvalprice =  ($itemprice-$mypdiscountprice);
+                                  foreach ($taxinfos as $taxinfo) 
+                                  {
+                                   $fildname='tax'.$tx;
+                                   if(!empty($iteminfo->$fildname)){
+                                     $vatcalc=$itemvalprice*$iteminfo->$fildname/100;
+                                     $multiplletax[$fildname] = $multiplletax[$fildname]+$vatcalc;
+                                   }
+                                   else{
+                                    $vatcalc=$itemvalprice*$taxinfo['default_value']/100; 
+                                    $multiplletax[$fildname] = $multiplletax[$fildname]+$vatcalc; 
 
-                               if($iteminfo->OffersRate>0){
-                                $mypdiscount=$iteminfo->OffersRate*$itemprice/100;
-                                $ptdiscount=$ptdiscount+($iteminfo->OffersRate*$itemprice/100);
+                                  }
+
+                                  $pvat=$pvat+$vatcalc;
+                                  $vatcalc =0; 
+                                  $tx++;  
+                                }
                               }
                               else{
-                                $mypdiscount=0;
-                                $pdiscount=$pdiscount+0;
-                              }
+                               $vatcalc=$itemprice*$iteminfo->productvat/100;
+                               $pvat=$pvat+$vatcalc;
+                             }
+
+                             if($iteminfo->OffersRate>0){
+                              $mypdiscount=$iteminfo->OffersRate*$itemprice/100;
+                              $ptdiscount=$ptdiscount+($iteminfo->OffersRate*$itemprice/100);
+                            }
+                            else{
+                              $mypdiscount=0;
+                              $pdiscount=$pdiscount+0;
+                            }
+                            if(!empty($item['addonsid'])){
+                              $nittotal=$item['addontpr'];
+                              $itemprice=$itemprice+$item['addontpr'];
+                            }
+                            else{
+                              $nittotal=0;
+                              $itemprice=$itemprice;
+                            }
+                            $totalamount=$totalamount+$nittotal;
+                            $subtotal=$subtotal+$nittotal+$item['price']*$item['qty'];
+                            $i++;
+                            ?>
+                            <tr id="<?php echo $i;?>">
+                              <th id="product_name_MFU4E"><?php echo  $item['name'];
                               if(!empty($item['addonsid'])){
-                                $nittotal=$item['addontpr'];
-                                $itemprice=$itemprice+$item['addontpr'];
-                              }
-                              else{
-                                $nittotal=0;
-                                $itemprice=$itemprice;
-                              }
-                              $totalamount=$totalamount+$nittotal;
-                              $subtotal=$subtotal+$nittotal+$item['price']*$item['qty'];
-                              $i++;
-                              ?>
-                              <tr id="<?php echo $i;?>">
-                                <th id="product_name_MFU4E"><?php echo  $item['name'];
-                                if(!empty($item['addonsid'])){
-                                  echo "<br>";
-                                  echo $item['addonname'];
-                                  if(!empty($taxinfos)){
+                                echo "<br>";
+                                echo $item['addonname'];
+                                if(!empty($taxinfos)){
 
-                                   $addonsarray = explode(',',$item['addonsid']);
-                                   $addonsqtyarray = explode(',',$item['addonsqty']);
-                                   $getaddonsdatas = $this->db->select('*')->from('add_ons')->where_in('add_on_id',$addonsarray)->get()->result_array();
-                                   $addn=0;
-                                   foreach ($getaddonsdatas as $getaddonsdata) {
-                                    $tax=0;
+                                 $addonsarray = explode(',',$item['addonsid']);
+                                 $addonsqtyarray = explode(',',$item['addonsqty']);
+                                 $getaddonsdatas = $this->db->select('*')->from('add_ons')->where_in('add_on_id',$addonsarray)->get()->result_array();
+                                 $addn=0;
+                                 foreach ($getaddonsdatas as $getaddonsdata) {
+                                  $tax=0;
 
-                                    foreach ($taxinfos as $taxainfo) 
-                                    {
+                                  foreach ($taxinfos as $taxainfo) 
+                                  {
 
-                                      $fildaname='tax'.$tax;
+                                    $fildaname='tax'.$tax;
 
-                                      if(!empty($getaddonsdata[$fildaname])){
+                                    if(!empty($getaddonsdata[$fildaname])){
 
-                                        $avatcalc=($getaddonsdata['price']*$addonsqtyarray[$addn])*$getaddonsdata[$fildaname]/100;
-                                        $multiplletax[$fildaname] = $multiplletax[$fildaname]+$avatcalc; 
+                                      $avatcalc=($getaddonsdata['price']*$addonsqtyarray[$addn])*$getaddonsdata[$fildaname]/100;
+                                      $multiplletax[$fildaname] = $multiplletax[$fildaname]+$avatcalc; 
 
-                                      }
-                                      else{
-                                        $avatcalc=($getaddonsdata['price']*$addonsqtyarray[$addn])*$taxainfo['default_value']/100; 
-                                        $multiplletax[$fildaname] = $multiplletax[$fildaname]+$avatcalc;  
-                                      }
-
-                                      $pvat=$pvat+$avatcalc;
-
-                                      $tax++;
                                     }
-                                    $addn++;
+                                    else{
+                                      $avatcalc=($getaddonsdata['price']*$addonsqtyarray[$addn])*$taxainfo['default_value']/100; 
+                                      $multiplletax[$fildaname] = $multiplletax[$fildaname]+$avatcalc;  
+                                    }
+
+                                    $pvat=$pvat+$avatcalc;
+
+                                    $tax++;
                                   }
+                                  $addn++;
                                 }
                               }
-                              ?><a class="serach pl-15" onclick="itemnote('<?php echo $item['rowid']?>','<?php echo $item['itemnote']?>',<?php echo $item['qty'];?>,2)" title="<?php echo display('foodnote') ?>"> <i class="fa fa-sticky-note" aria-hidden="true"></i> </a></th>
-                              <td><?php echo $item['size'];?></td>
-                              <td width=""><?php if($currency->position==1){echo $currency->curr_icon;}?>
-                              <?php echo $item['price'];?>
-                              <?php if($currency->position==2){echo $currency->curr_icon;}?></td>
-                              <td scope="row"><a class="btn btn-info btn-sm btnleftalign" onclick="posupdatecart('<?php echo $item['rowid']?>',<?php echo $item['pid'];?>,<?php echo $item['sizeid']?>,<?php echo $item['qty'];?>,'add')"><i class="fa fa-plus" aria-hidden="true"></i></a> <span id="productionsetting-<?php echo $item['pid'].'-'.$item['sizeid'] ?>"> <?php echo $item['qty'];?> </span> <a class="btn btn-danger btn-sm btnrightalign" onclick="posupdatecart('<?php echo $item['rowid']?>',<?php echo $item['pid'];?>,<?php echo $item['sizeid']?>,<?php echo $item['qty'];?>,'del')"><i class="fa fa-minus" aria-hidden="true"></i></a></td>
-                              <td width=""><?php if($currency->position==1){echo $currency->curr_icon;}?>
-                              <?php echo $itemprice-$mypdiscount;?>
-                              <?php if($currency->position==2){echo $currency->curr_icon;}?></td>
-                              <td width:"80"=""><a class="btn btn-danger btn-sm btnrightalign" onclick="removecart('<?php echo $item['rowid'];?>')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
-                            </tr>
-                          <?php } 
-                          $itemtotal=$subtotal;
-                          /*check $taxsetting info*/
-                          if(empty($taxinfos)){
-                            if($settinginfo->vat>0 ){
-                             $calvat=($itemtotal-$ptdiscount)*$settinginfo->vat/100;
-                           }
-                           else{
-                             $calvat=$pvat;
-                           }
+                            }
+                            ?><a class="serach pl-15" onclick="itemnote('<?php echo $item['rowid']?>','<?php echo $item['itemnote']?>',<?php echo $item['qty'];?>,2)" title="<?php echo display('foodnote') ?>"> <i class="fa fa-sticky-note" aria-hidden="true"></i> </a></th>
+                            <td><?php echo $item['size'];?></td>
+                            <td width=""><?php if($currency->position==1){echo $currency->curr_icon;}?>
+                            <?php echo $item['price'];?>
+                            <?php if($currency->position==2){echo $currency->curr_icon;}?></td>
+                            <td scope="row"><a class="btn btn-info btn-sm btnleftalign" onclick="posupdatecart('<?php echo $item['rowid']?>',<?php echo $item['pid'];?>,<?php echo $item['sizeid']?>,<?php echo $item['qty'];?>,'add')"><i class="fa fa-plus" aria-hidden="true"></i></a> <span id="productionsetting-<?php echo $item['pid'].'-'.$item['sizeid'] ?>"> <?php echo $item['qty'];?> </span> <a class="btn btn-danger btn-sm btnrightalign" onclick="posupdatecart('<?php echo $item['rowid']?>',<?php echo $item['pid'];?>,<?php echo $item['sizeid']?>,<?php echo $item['qty'];?>,'del')"><i class="fa fa-minus" aria-hidden="true"></i></a></td>
+                            <td width=""><?php if($currency->position==1){echo $currency->curr_icon;}?>
+                            <?php echo $itemprice-$mypdiscount;?>
+                            <?php if($currency->position==2){echo $currency->curr_icon;}?></td>
+                            <td width:"80"=""><a class="btn btn-danger btn-sm btnrightalign" onclick="removecart('<?php echo $item['rowid'];?>')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                          </tr>
+                        <?php } 
+                        $itemtotal=$subtotal;
+                        /*check $taxsetting info*/
+                        if(empty($taxinfos)){
+                          if($settinginfo->vat>0 ){
+                           $calvat=($itemtotal-$ptdiscount)*$settinginfo->vat/100;
                          }
                          else{
                            $calvat=$pvat;
                          }
-                         $grtotal=$itemtotal;
-                         $totalitem=$i;
-                         ?>
-                       </tbody>
-                     </table>
-                     <?php $pdiscount=$ptdiscount;}
+                       }
+                       else{
+                         $calvat=$pvat;
+                       }
+                       $grtotal=$itemtotal;
+                       $totalitem=$i;
+                       ?>
+                     </tbody>
+                   </table>
+                   <?php $pdiscount=$ptdiscount;}
 
-                     $multiplletaxvalue=htmlentities(serialize($multiplletax));								 										
-                     ?>
-                     <input name="subtotal" id="subtotal" type="hidden" value="<?php echo $subtotal;?>" />
+                   $multiplletaxvalue=htmlentities(serialize($multiplletax));								 										
+                   ?>
+                   <input name="subtotal" id="subtotal" type="hidden" value="<?php echo $subtotal;?>" />
 
-                     <input name="multiplletaxvalue" id="multiplletaxvalue" type="hidden" value="<?php echo $multiplletaxvalue;?>" />
-                     <?php 
-                     if(!empty($this->cart->contents())){
-                      if($settinginfo->service_chargeType==1){
-                       $totalsercharge=$subtotal-$pdiscount;
-                       $servicetotal=$settinginfo->servicecharge*$totalsercharge/100;
-                     }
-                     else{
-                       $servicetotal=$settinginfo->servicecharge;
-                     }
-                     $servicecharge= $settinginfo->servicecharge;
+                   <input name="multiplletaxvalue" id="multiplletaxvalue" type="hidden" value="<?php echo $multiplletaxvalue;?>" />
+                   <?php 
+                   if(!empty($this->cart->contents())){
+                    if($settinginfo->service_chargeType==1){
+                     $totalsercharge=$subtotal-$pdiscount;
+                     $servicetotal=$settinginfo->servicecharge*$totalsercharge/100;
                    }
                    else{
-                     $servicetotal=0;
-                     $servicecharge=0;
+                     $servicetotal=$settinginfo->servicecharge;
                    }
-                   ?>
-                 </div>
+                   $servicecharge= $settinginfo->servicecharge;
+                 }
+                 else{
+                   $servicetotal=0;
+                   $servicecharge=0;
+                 }
+                 ?>
                </div>
              </div>
-             <div class="fixedclasspos">
-              <div class="row d-flex flex-wrap align-items-center">
-                <div class="col-sm-6 leftview">
-                  <input name="distype" id="distype" type="hidden" value="<?php echo $settinginfo->discount_type;?>" />
-                  <input name="sdtype" id="sdtype" type="hidden" value="<?php echo $settinginfo->service_chargeType;?>" />
-                  <input type="hidden" id="orginattotal" value="<?php echo $calvat+$itemtotal+$servicetotal-($discount+$pdiscount);?>" name="orginattotal">
-                  <input type="hidden" id="invoice_discount" class="form-control text-right" name="invoice_discount" value="<?php echo $discount+$pdiscount?>">
-                  <table class="table table-bordered footersumtotal">
-                    <tr>
-                      <td><div class="row m-0">
-                        <label for="date" class="col-sm-8 mb-0"><?php echo display('vat_tax1')?>: </label>
-                        <label class="col-sm-4 mb-0">
-                          <input type="hidden" id="vat" name="vat" value="<?php echo $calvat;?>"/>
-                        </label>
-                        <strong>
-                          <?php if($currency->position==1){echo $currency->curr_icon;}?>
-                          <span id="calvat"> <?php echo $calvat;?></span>
-                          <?php if($currency->position==2){echo $currency->curr_icon;}?>
-                        </strong>
+           </div>
+           <div class="fixedclasspos">
+            <div class="row d-flex flex-wrap align-items-center">
+              <div class="col-sm-6 leftview">
+                <input name="distype" id="distype" type="hidden" value="<?php echo $settinginfo->discount_type;?>" />
+                <input name="sdtype" id="sdtype" type="hidden" value="<?php echo $settinginfo->service_chargeType;?>" />
+                <input type="hidden" id="orginattotal" value="<?php echo $calvat+$itemtotal+$servicetotal-($discount+$pdiscount);?>" name="orginattotal">
+                <input type="hidden" id="invoice_discount" class="form-control text-right" name="invoice_discount" value="<?php echo $discount+$pdiscount?>">
+                <table class="table table-bordered footersumtotal">
+                  <tr>
+                    <td><div class="row m-0">
+                      <label for="date" class="col-sm-8 mb-0"><?php echo display('vat_tax1')?>: </label>
+                      <label class="col-sm-4 mb-0">
+                        <input type="hidden" id="vat" name="vat" value="<?php echo $calvat;?>"/>
                       </label>
-                    </div></td>
-                    <td rowspan="2"><label for="date" class="mb-0 col-sm-6"><?php echo display('grand_total')?>:</label>
-                      <label class="col-sm-6 p-0 mb-0">
-                        <input type="hidden" id="orggrandTotal" value="<?php echo $calvat+$itemtotal+$servicetotal-($discount+$pdiscount);?>" name="orggrandTotal">
-                        <input name="grandtotal" type="hidden" value="<?php echo $calvat+$itemtotal+$servicetotal-($discount+$pdiscount);?>" id="grandtotal" />
-                        <span class="badge badge-primary grandbg font-26"><strong>
-                          <?php if($currency->position==1){echo $currency->curr_icon;}?>
-                          <span id="caltotal"><?php echo $calvat+$itemtotal+$servicetotal-($discount+$pdiscount);?></span>
-                          <?php if($currency->position==2){echo $currency->curr_icon;}?>
-                        </strong></span></label></td>
-                      </tr>
-                      <tr>
-                        <td><label for="date" class="col-sm-8 mb-0"><?php echo display('service_chrg')?>
-                        <?php if($settinginfo->service_chargeType==0){ echo "(".$currency->curr_icon.")";}else{ echo "(%)";}?>
-                      :</label>
-                      <div class="col-sm-4 p-0">
-                        <input type="text" id="service_charge" onkeyup="calculatetotal();"  class="form-control text-right mb-5" value="<?php echo $servicecharge;?>" name="service_charge" placeholder ="0.00"/>
-                      </div></td>
+                      <strong>
+                        <?php if($currency->position==1){echo $currency->curr_icon;}?>
+                        <span id="calvat"> <?php echo $calvat;?></span>
+                        <?php if($currency->position==2){echo $currency->curr_icon;}?>
+                      </strong>
+                    </label>
+                  </div></td>
+                  <td rowspan="2"><label for="date" class="mb-0 col-sm-6"><?php echo display('grand_total')?>:</label>
+                    <label class="col-sm-6 p-0 mb-0">
+                      <input type="hidden" id="orggrandTotal" value="<?php echo $calvat+$itemtotal+$servicetotal-($discount+$pdiscount);?>" name="orggrandTotal">
+                      <input name="grandtotal" type="hidden" value="<?php echo $calvat+$itemtotal+$servicetotal-($discount+$pdiscount);?>" id="grandtotal" />
+                      <span class="badge badge-primary grandbg font-26"><strong>
+                        <?php if($currency->position==1){echo $currency->curr_icon;}?>
+                        <span id="caltotal"><?php echo $calvat+$itemtotal+$servicetotal-($discount+$pdiscount);?></span>
+                        <?php if($currency->position==2){echo $currency->curr_icon;}?>
+                      </strong></span></label></td>
                     </tr>
-                  </table>
-                </div>
-                <div class="col-sm-6 text-right"> <a class="btn btn-primary cusbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-calculator" aria-hidden="true"></i></a> <a href="<?php echo base_url("ordermanage/order/posclear") ?>" type="button" class="btn btn-danger cusbtn"><?php echo display('cancel')?></a>
-                  <input type="hidden" id="getitemp" name="getitemp" value="<?php echo $totalitem-$discount;?>" />
-                  <input type="button" id="add_payment2" class="btn btn-primary btn-large cusbtn" onclick="quickorder()" name="add-payment" value="<?php echo display('quickorder') ?>">
-                  <input type="button" id="add_payment" class="btn btn-success btn-large cusbtn" onclick="placeorder()" name="add-payment" value="<?php echo display('placeorder') ?>">
+                    <tr>
+                      <td><label for="date" class="col-sm-8 mb-0"><?php echo display('service_chrg')?>
+                      <?php if($settinginfo->service_chargeType==0){ echo "(".$currency->curr_icon.")";}else{ echo "(%)";}?>
+                    :</label>
+                    <div class="col-sm-4 p-0">
+                      <input type="text" id="service_charge" onkeyup="calculatetotal();"  class="form-control text-right mb-5" value="<?php echo $servicecharge;?>" name="service_charge" placeholder ="0.00"/>
+                    </div></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-sm-6 text-right"> <a class="btn btn-primary cusbtn" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-calculator" aria-hidden="true"></i></a> <a href="<?php echo base_url("ordermanage/order/posclear") ?>" type="button" class="btn btn-danger cusbtn"><?php echo display('cancel')?></a>
+                <input type="hidden" id="getitemp" name="getitemp" value="<?php echo $totalitem-$discount;?>" />
+                <input type="button" id="add_payment2" class="btn btn-primary btn-large cusbtn" onclick="quickorder()" name="add-payment" value="<?php echo display('quickorder') ?>">
+                <input type="button" id="add_payment" class="btn btn-success btn-large cusbtn" onclick="placeorder()" name="add-payment" value="<?php echo display('placeorder') ?>">
 
 
-                  <input type="hidden" id="production_setting" value="<?php echo $possetting->productionsetting; ?>" >
-                  <input type="hidden" id="production_url" value="<?php echo base_url("production/production/ingredientcheck") ?>">
-                </div>
+                <input type="hidden" id="production_setting" value="<?php echo $possetting->productionsetting; ?>" >
+                <input type="hidden" id="production_url" value="<?php echo base_url("production/production/ingredientcheck") ?>">
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 <div class="tab-pane fade" id="profile">
@@ -1169,3 +1171,51 @@ $ptdiscount=0;?>
 <script src="<?php echo base_url('ordermanage/order/possettingjs') ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('ordermanage/order/quickorderjs') ?>" type="text/javascript"></script>
 <script src="<?php echo base_url('application/modules/ordermanage/assets/js/possetting.js'); ?>" type="text/javascript"></script>
+
+
+
+
+
+
+<form method="POST" action="http://localhost/zamzamresturant/insert.php">
+  <div class="modal fade modal-success" id="client-info2" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title">Add Waiter</h3>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <label for="name" class="col-sm-3 col-form-label">Name <i class="text-danger">*</i></label>
+            <div class="col-sm-6">
+              <input class="form-control simple-control" name ="name" id="name" type="text" placeholder="Waiter Name"  required="">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="mobile" class="col-sm-3 col-form-label">Mobile </label>
+            <div class="col-sm-6">
+              <input class="form-control" name ="mobile" id="mobile" type="number" placeholder="Waiter Mobile">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="address " class="col-sm-3 col-form-label">Address</label>
+            <div class="col-sm-6">
+              <textarea class="form-control" name="address" id="address " rows="3" placeholder="Waiter Address"></textarea>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal"><?php echo display('close');?> </button>
+          <button type="submit" class="btn btn-success" name="submit" value="submit"><?php echo display('submit');?> </button>
+        </div>
+      </div>
+      <!-- /.modal-content --> 
+    </div>
+    <!-- /.modal-dialog --> 
+  </div>
+</form>
+
+
